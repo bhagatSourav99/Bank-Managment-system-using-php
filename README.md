@@ -1,0 +1,2 @@
+# Bank-Managment-system-using-php
+The project on web development is made using net beans IDE platform and the MySQL server. The front end is designed using HTML, CSS, and JAVASCRIPT the back-end data is manage using SQL DATABASE. PHP is used as server-side scripting language.  It follows PHP for offering the sessions for the data source connection. The project is Bank website for perform various bank operations User can transfer money and check balance.
