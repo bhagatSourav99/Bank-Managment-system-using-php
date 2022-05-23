@@ -1,0 +1,83 @@
+LOGIN
+<html>
+<head>
+<title>form</title>
+<link rel="stylesheet" type="text/css" href="logincss.css">
+<script>
+function validateform()
+{
+var account=document.myform.account.value
+;
+var password=document.myform.password.value;
+
+if(account==null || account=="")
+{
+alert("account can't be empty"); return false;
+}
+else if(password==null || password=="")
+{
+alert("password can't be empty"); return false;
+
+}
+else if(password.length<6)
+{
+alert("password must be atleast 6 characters long."); return false;
+}
+}
+</script>
+<body>
+
+
+<div class="loginbox">
+<img src="blue.jpg" alt="" class="blue"/>
+
+<h1>Login Here</h1>
+<body>
+<form name="myform" method="post" action="" onsubmit="return validateform()">
+<p>account</p>
+<input type="text" name="account" placeholder="enter your account"><br>
+<p>password</p>
+<input type="password" name="password" placeholder="enter your password"><br><br>
+<input type="submit" name="submit" value="login">
+
+
+<a href="registeration.php">Don't have an account?</a><br>
+</div>
+</form>
+
+<?php
+$host = 'localhost';
+$user = 'root';
+$pass = '';
+$dbname = 'gagan';
+$conn = mysqli_connect($host, $user, $pass,$dbname); if(!$conn){
+die('Could not connect: '.mysqli_connect_error());
+}
+
+else{
+
+if(isset($_POST["submit"]))
+{
+$account=$_POST['account'];
+$password=$_POST['password'];
+$max="select * from master where account='".$account."'AND password='".$password."' ";
+
+$sql=mysqli_query($conn,$max);
+$rw=mysqli_fetch_array($sql); if($rw>0)
+{	header("location:next.php");
+
+}
+
+
+else{
+
+}
+}}
+?>
+
+
+echo "You have entered an incorrect passsword";
+
+</body>
+</head>
+</html>
